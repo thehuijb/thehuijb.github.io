@@ -1,0 +1,19 @@
+{% include document/head.html %}
+<body>
+
+{% include page/header.html %}
+
+	<!--[if lte IE 7]>
+		<div class="notification blocking-message">
+			De versie van uw Internet Explorer wordt niet ondersteund. Installeer de laatste versie van Internet Explorer.
+		</div>
+	<![endif]-->
+{{ content }}
+
+
+{% include page/footer.html %}
+
+{% include page/behavior.html %}
+
+</body>
+</html>

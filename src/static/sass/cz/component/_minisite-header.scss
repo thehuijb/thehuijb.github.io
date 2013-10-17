@@ -1,0 +1,40 @@
+$header-outer-height: 158px;
+$border-width: 1px;
+$margin-bottom: 18px;
+$title-bar-height: 50px; // Height of the colored title bar
+$logo-bar-height: 76px;  // Height of the bar with the company logo
+
+.minisite-header {
+	border-bottom: solid $border-width #000;
+	height: $header-outer-height - $border-width - $margin-bottom;
+	margin-bottom: $margin-bottom;
+	overflow: hidden;
+
+	.title-bar {
+		height:$title-bar-height;
+		line-height:$title-bar-height;
+		padding-left:15px;
+
+		img {
+			position: absolute;
+			right: 150px;
+			top: 13px;
+			z-index: 1;
+		}
+	}
+
+	.logo-wrapper {
+		height: $logo-bar-height;
+		line-height: $logo-bar-height;
+		margin-left:15px;
+
+		img {
+			vertical-align: middle;
+		}
+	}
+
+	h1 {
+		font-size: 1.4em;
+		margin: 0;
+	}
+}

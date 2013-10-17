@@ -1,0 +1,124 @@
+$panel-backbutton-color: $color-text-link;
+$panel-color-border: $color-text-link;
+
+.js [data-module*='lightbox'],
+.js [data-module*='avselectbox'],
+.js [data-module*='popover'] {
+	display:none;
+}
+
+.panel {
+	background: $color-message-background;
+	border-radius:.25em;
+	box-shadow:0 .125em .375em rgba(0,0,0,.125);
+	padding:1em 1em 0;
+    position:fixed;
+	z-index:9998; // Date picker has 9999
+
+	&[data-module*="popover"] {
+		position: absolute;
+	}
+
+	&:focus {
+		outline:none;
+	}
+
+	&[data-module*='avselectbox'],
+	&[data-module*='lightbox'],
+	&[data-module*='popover'] {
+		display:block;
+	}
+
+	&[data-module*='avselectbox'],
+	&[data-module*='lightbox'] {
+		background:#fff;
+		border-radius:.5em;
+		border:2px solid $color-border;
+		left:50%;
+		margin-left:-15em;
+		padding: 1em;
+		top:10em;
+		width:30em;
+	}
+
+	&[data-module*='popover'] {
+		&.arrow-left {
+			@include bordered-triangle(15px, 15px, $panel-color-border, $color-message-background, 1px, 0, 10px, 'left');
+		}
+		&.arrow-top {
+			@include bordered-triangle(15px, 15px, $panel-color-border, $color-message-background, 1px, 90%, -15px, 'up');
+		}
+		border:1px solid $panel-color-border;
+		max-width: 20em;
+
+		p {
+			margin-top:0;
+			margin-right:2em;
+		}
+
+		h1:first-child~p {
+			margin-top:1em;
+		}
+	}
+
+	.back {
+		border-bottom: none;
+		color: #fff; // This will hide link in Chrome
+		height:2em;
+		overflow:hidden;
+		position:absolute;
+		right:.5em;
+		text-decoration:none;
+		top:.5em;
+		width:2em;
+		text-indent: 9999px;
+		&:active {
+			background-color: transparent;
+		}
+	}
+
+	.back:after {
+		bottom:0;
+		color: $panel-backbutton-color;
+		content:'\f057';
+		cursor: pointer;
+		display:block;
+		font-family: 'FontAwesome';
+		font-size:1.5em;
+		left:0;
+		position:absolute;
+		right:0;
+		text-align:center;
+		top:0;
+		text-indent: 0;
+	}
+
+	.back:focus:after,
+	.back:hover:after {
+		color: darken($panel-backbutton-color, 10%);
+	}
+
+	&[data-module*='avselectbox'],
+	&[data-module*='lightbox'] {
+		.back:after {
+			color:$color-text-secondary;
+		}
+
+		.back:focus:after,
+		.back:hover:after {
+			color:darken($color-text-secondary, 10%);
+		}
+	}
+}
+
+.overlay {
+	@include opacity(0.5);
+	bottom:0;
+	background-color: #000;
+	content:'';
+	left:0;
+	position:fixed;
+	right:0;
+	top:0;
+	z-index:9997;
+}

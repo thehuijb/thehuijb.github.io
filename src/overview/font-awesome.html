@@ -1,0 +1,198 @@
+---
+layout: default
+title: FontAwesome styletile
+
+awesomes: [
+	{
+		awesomeName: icon-chevron-up,
+		description: Pijl omhoog,
+		charCode: '&#xf077;',
+		displayCharCode: 'f077'
+	},
+	{
+		awesomeName: icon-chevron-down,
+		description: Pijl omlaag,
+		charCode: '&#xf078;',
+		displayCharCode: 'f078'
+	},
+	{
+		awesomeName: icon-chevron-left,
+		description: Pijl naar links,
+		charCode: '&#xf053;',
+		displayCharCode: 'f053'
+	},
+	{
+		awesomeName: icon-chevron-right,
+		description: Pijl naar rechts,
+		charCode: '&#xf054;',
+		displayCharCode: 'f054'
+	},
+	{
+		awesomeName: icon-double-angle-left,
+		description: Dubbele pijl naar links,
+		charCode: '&#xf100;',
+		displayCharCode: 'f100'
+	},
+	{
+		awesomeName: icon-remove-sign,
+		description: Verwijderen / Sluiten,
+		charCode: '&#xf057;',
+		displayCharCode: 'f057'
+	},
+	{
+		awesomeName: icon-info-sign,
+		description: Informatie icoon,
+		charCode: '&#xf05a;',
+		displayCharCode: 'f05a'
+	},
+	{
+		awesomeName: icon-warning-sign,
+		description: Waarschuwing icoon,
+		charCode: '&#xf071;',
+		displayCharCode: 'f071'
+	},
+	{
+		awesomeName: icon-plus,
+		description: Plus icoon,
+		charCode: '&#xf067;',
+		displayCharCode: 'f067'
+	},
+	{
+		awesomeName: icon-exclamation-sign,
+		description: Fout indicator,
+		charCode: '&#xF06A;',
+		displayCharCode: 'f06a'
+	},
+	{
+		awesomeName: icon-ok-sign,
+		description: Validatie icoon,
+		charCode: '&#xf058;',
+		displayCharCode: 'f058'
+	},
+	{
+		awesomeName: icon-ok,
+		description: Validatie icoon,
+		charCode: '&#xf00c;',
+		displayCharCode: 'f00c'
+	},
+	{
+		awesomeName: icon-remove,
+		description: Error kruis,
+		charCode: '&#xf00d;',
+		displayCharCode: 'f00d'
+	},
+	{
+		awesomeName: icon-external-link,
+		description: link naar externe pagina,
+		charCode: '&#xf08e;',
+		displayCharCode: 'f08e'
+	},
+	{
+		awesomeName: icon-download-alt,
+		description: Download icoon,
+		charCode: '&#xf019;',
+		displayCharCode: 'f019'
+	}
+]
+
+sizes: [
+	'xx-large',
+	'x-large',
+	'large',
+	'medium',
+	'normal',
+	'small'
+]
+---
+<style>
+	dl {
+		margin: 0;
+	}
+
+	dl:before,
+	dl:after{
+		content: ' ';
+		display: table;
+	}
+	dl:after{
+		clear: both;
+	}
+	dt,
+	dd {
+		float: left;
+	}
+	dt {
+		clear: left;
+		text-align: right;
+		width: 5.5em;
+	}
+
+	dd {
+		margin-left: 1em;
+	}
+
+
+	span {
+		font-family: 'FontAwesome';
+	}
+
+	.small {
+		font-size: .5em;
+		line-height: 1em;
+	}
+	.normal {
+		font-size: 1em
+		line-height: 1em;
+	}
+	.medium {
+		font-size: 1.66666667em;
+		line-height: 1em;
+	}
+	.large {
+		font-size: 2.83333333em;
+		line-height: 1em;
+	}
+	.x-large {
+		font-size: 4.88888889em;
+		line-height: 1em;
+	}
+	.xx-large {
+		font-size: 8em;
+		line-height: 1em;
+	}
+
+	.font-tile {
+		background-color: #EBEBEB;
+		float: left;
+		margin: 1em;
+		padding: 1em;
+		width: 360px;
+	}
+	.font-tile > div {
+		border-color: #CCC;
+		border-style: solid;
+		border-width: 1px 0;
+		margin-bottom: .5em;
+	}
+</style>
+
+<section>
+	<h1 class="h1">Font Awesome iconen</h1>
+	{% for awesome in page.awesomes %}
+	<section class="font-tile">
+		<h2 class="h1">{{awesome.description}}</h1>
+		<div>
+			{% for size in page.sizes %}
+			<span class={{size}}>{{awesome.charCode}}</span>
+			{% endfor %}
+		</div>
+			<dl>
+			<dt>class name:</dt>
+			<dd>{{awesome.awesomeName}}</dd>
+			<dt>char code:</dt>
+			<dd>{{awesome.displayCharCode}}</dd>
+		</dl>
+	</section>
+	{% endfor %}
+
+</section>

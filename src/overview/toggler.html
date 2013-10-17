@@ -1,0 +1,304 @@
+---
+layout: default
+title: toggler examples
+---
+<style>
+
+	.togglers {
+		padding:2em;
+	}
+
+	hr {
+		margin:2em 0;
+	}
+
+	dl,dt,dd,ul,li {
+		padding:0;
+		margin:0;
+	}
+
+	dt,dd {
+		display:inline;
+	}
+
+	dl,ul,p,q {
+		margin:1em 0;
+	}
+
+	q {
+		display:block;
+		font-style:italic;
+	}
+
+</style>
+<section class="togglers">
+
+	<section>
+
+		<!-- use closed property to show by default -->
+		<button data-module="ui/toggler">Knock knock!</button>
+		<p>
+			Who's there?
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- by default hides next element -->
+		<button data-module="ui/toggler" data-options='{"open":true}'>Be gone!</button>
+		<p>
+			Bye Bye!
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- use target property to toggle other elements (starting at document root) -->
+		<dl>
+			<dt>At the following beep the time is:</dt>
+			<dd>12:00</dd>
+		</dl>
+		<button data-module="ui/toggler" data-options='{"target":"dl>dd"}'>Beeep!</button>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<label for="checkit">Check</label>
+		<input type="checkbox" id="checkit" name="checkit" data-module="ui/value-toggler"/>
+
+		<p>
+			I've been checked
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<label for="uncheckit">Uncheck</label>
+		<input type="checkbox" id="uncheckit" name="uncheckit" data-module="ui/value-toggler" data-options='{"expected":false}'/>
+
+		<p>
+			I'm unchecked
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- a select box with one value for on and one for off -->
+		<label for="other">Select anything but A</label>
+		<select data-module="ui/value-toggler" name="other" id="other" data-options='{"expected":"!a"}' data-target=".other">
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c">C</option>
+			<option value="d">D</option>
+			<option value="e">E</option>
+		</select>
+
+		<p class="other">
+			B, C, D or E selected
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- a select box with one value for on and one for off -->
+		<label for="or">Select A or C</label>
+		<select data-module="ui/value-toggler" name="or" id="or" data-options='{"expected":"a,c"}' data-target=".or">
+			<option value="a">A</option>
+			<option value="b">B</option>
+			<option value="c">C</option>
+			<option value="d">D</option>
+			<option value="e">E</option>
+		</select>
+
+		<p class="or">
+			A or C selected
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- radio button where you have to select anything but A -->
+		<fieldset data-module="ui/value-toggler" data-options='{"expected":"!a"}'>
+			<legend>Radio anything but A</legend>
+			<ul class="checkables">
+				<li><label class="checkable"><input type="radio" name="other-radio" value="a"/> A</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="b"/> B</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="c"/> C</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="d"/> D</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="e"/> E</label></li>
+			</ul>
+		</fieldset>
+		<p>
+			B, C, D or E selected
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- radio button where you have to select anything but A -->
+		<fieldset data-module="ui/value-toggler" data-options='{"expected":"!a,c"}'>
+			<legend>Don't radio A or radio C</legend>
+			<ul class="checkables">
+				<li><label class="checkable"><input type="radio" name="other-radio" value="a"/> A</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="b"/> B</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="c"/> C</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="d"/> D</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="e"/> E</label></li>
+			</ul>
+		</fieldset>
+		<p>
+			Not A selected or C selected
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- radio button where you have to select anything but A -->
+		<fieldset data-module="ui/value-toggler" data-options='{"expected":"!a,!c"}'>
+			<legend>Don't radio A and don't radio C</legend>
+			<ul class="checkables">
+				<li><label class="checkable"><input type="radio" name="other-radio" value="a"/> A</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="b"/> B</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="c"/> C</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="d"/> D</label></li>
+				<li><label class="checkable"><input type="radio" name="other-radio" value="e"/> E</label></li>
+			</ul>
+		</fieldset>
+		<p>
+			Not A or C selected
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- toggle multiple elements and toggle using a radio button list (including double targets) -->
+		<fieldset>
+			<legend>Doubles</legend>
+			<ul class="checkables" data-module="ui/multi-toggler">
+				<li><label class="checkable"><input type="radio" name="doubles" value="a" data-target=".doubles-a" /> A</label></li>
+				<li><label class="checkable"><input type="radio" name="doubles" value="b" data-target=".doubles-b" /> B</label></li>
+				<li><label class="checkable"><input type="radio" name="doubles" value="c" data-target=".doubles-a" /> C (A)</label></li>
+			</ul>
+		</fieldset>
+
+		<p class="doubles-a">
+			A!
+		</p>
+
+		<p class="doubles-b">
+			B!
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- toggle multiple elements and toggle using a radio button list -->
+		<fieldset>
+			<legend>Thus</legend>
+			<ul class="checkables" data-module="ui/multi-toggler">
+				<li><label class="checkable"><input type="radio" name="thus" value="y" data-target=".yes" /> Yes</label></li>
+				<li><label class="checkable"><input type="radio" name="thus" value="n" data-target=".no" checked/> No</label></li>
+				<li><label class="checkable"><input type="radio" name="thus" value="x"/> Maybe</label></li>
+			</ul>
+		</fieldset>
+
+		<p class="yes">
+			Yes!
+		</p>
+
+		<p class="no">
+			No!
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- toggle elements using radio buttons, toggler will automatically look for 'name' attribute -->
+		<fieldset data-module="ui/multi-toggler">
+			<legend>8 Bits</legend>
+			<ul class="checkables">
+				<li><label class="checkable"><input type="radio" name="supermario" data-target=".mario" value="m"/> Mario</label></li>
+				<li><label class="checkable"><input type="radio" name="supermario" data-target=".luigi" value="l" checked/> Luigi</label></li>
+				<li><label class="checkable"><input type="radio" name="supermario" data-target=".peach" value="p"/> Peach</label></li>
+				<li><label class="checkable"><input type="radio" name="supermario" data-target=".bowser" value="b"/> Bowser</label></li>
+			</ul>
+		</fieldset>
+
+		<p class="mario">
+			It's a me! Mario!
+		</p>
+
+		<p class="luigi">
+			Spaghetti!
+		</p>
+
+		<p class="peach">
+			Thank you Mario, but our princess is in another castle!
+		</p>
+
+		<p class="bowser">
+			Mario! How dare you disturb my family vacation!
+		</p>
+
+	</section>
+
+	<hr>
+
+	<section>
+
+		<!-- toggle multiple elements using a single select -->
+		<label for="turtles">Ninja Turtles</label>
+		<select data-module="ui/multi-toggler" name="turtles" id="turtles">
+			<option value="a" data-target=".leonardo">Leonardo</option>
+			<option value="b" data-target=".donatello" selected>Donatello</option>
+			<option value="c" data-target=".raphael">Raphael</option>
+		</select>
+		<q class="leonardo">
+			Teenage Mutant Ninja Turtles!
+		</q>
+		<q class="donatello">
+			Heroes in a half-shell!
+		</q>
+		<q class="raphael">
+			Turtle power!
+		</q>
+
+	</section>
+
+</section>

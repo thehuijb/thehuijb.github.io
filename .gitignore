@@ -1,0 +1,22 @@
+# Folders to ignore
+.DS_Store
+.cache
+.hg
+.svn
+.CVS
+.idea
+node_modules
+Thumbs.db
+_SpecRunner.html
+npm-debug.log
+.sass-cache
+.grunt
+_site
+bin
+src/static/css
+src/static/sass/*.css
+js.min
+*.orig
+WebWorkbench.mswwsettings
+!node_modules/dyson-generators/index.js
+!dist/static/js.min

@@ -1,0 +1,3 @@
+define({
+	'ESCAPE':27
+});

@@ -1,0 +1,178 @@
+
+
+/*	==[ TRIANGLE ]======================
+	Creates a triangle using nothing but CSS.
+
+	@param $width 		The width of the triangle
+	@param $height 		The height of the triangle
+	@param $fill-color 	The fill color of the triangle
+	@param $direction 	The direction the arrow points at.
+						The allowed values are 'up', 'down', 'left', 'right'
+	================================= */
+@mixin triangle($width, $height, $fill-color, $left, $top, $direction) {
+	@include triangle-with-margin($width, $height, $fill-color, $left, $top, -$width, $direction);
+}
+
+@mixin triangle-with-margin($width, $height, $fill-color, $left, $top, $margin-left, $direction) {
+	@if $direction == 'down' {
+		border-bottom: 0 solid transparent;
+	} @else {
+		border-bottom: $height solid if($direction == 'up', $fill-color, transparent);
+	}
+
+	@if $direction == 'left' {
+		border-left: 0 solid transparent;
+	} @else {
+		border-left: $width solid if($direction == 'right', $fill-color, transparent);
+	}
+
+	@if $direction == 'right' {
+		border-right: 0 solid transparent;
+	} @else {
+		border-right: $width solid if($direction == 'left', $fill-color, transparent);
+	}
+
+	@if $direction == 'up' {
+		border-top: 0 solid transparent;
+	} @else {
+		border-top: $height solid if($direction == 'down' , $fill-color, transparent);
+	}
+
+	content: ' ';
+	left: $left;
+	height: 0;
+	margin-left: $margin-left;
+	position: absolute;
+	top: $top;
+	width: 0;
+}
+
+/*	==[ TRIANGLE ]======================
+	Creates a triangle with a border, using nothing but CSS. The straight side of
+	the arrow (opposite of the direction it is pointing at) will NOT have a border
+
+	@param $width 			The width of the triangle
+	@param $height 			The height of the triangle
+	@param $border-color 	The color of the border
+	@param $fill-color 		The fill color of the triangle
+	@param $border-width 	The width of the border
+	@param $direction 		The direction the arrow points at.
+							The allowed values are 'up', 'down', 'left', 'right'
+	================================= */
+@mixin bordered-triangle($width, $height, $border-color, $fill-color, $border-width, $left, $top, $direction) {
+	&:after {
+		@if $direction == 'left' {
+			@include triangle-with-margin($width, $height, $fill-color, $left, $top, -($width - $border-width), $direction);
+		} @else if $direction == 'up' {
+			@include triangle(($width - $border-width), ($height - $border-width), $fill-color, $left, ($top + $border-width), $direction);
+		} @else {
+			@include triangle(($width - $border-width), ($height - $border-width), $fill-color, $left, $top, $direction);
+		}
+
+		display: block;
+	}
+
+	&:before {
+		@include triangle($width, $height, $border-color, $left, $top, $direction);
+		display: block;
+	}
+}
+
+/* 	==[ BOX-SIZING ]====================
+	1: Firefox supports the prefixed property in versions 19 and up
+	2: iOS 3.2 - 4.3 and, Android 2.1 - 3.0 and Blackberry 7 need this prefix
+ 	================================= */
+@mixin box-sizing($model) {
+	-moz-box-sizing: $model; // note 1
+	-webkit-box-sizing: $model; // note 2
+	box-sizing: $model;
+}
+
+/*	==[ BORDER-RADIUS ]=================
+	This property is NOT supported in IE8
+	1: iOS 3.2 and Android 2.1 need this prefix
+	================================= */
+@mixin radius($radius) {
+	-webkit-border-radius:$radius; // note 1
+	border-radius:$radius;
+}
+
+/*	==[ OPACITY ]=======================
+	Pass the value as a decimal, 0 = transparent; 1 = opaque
+	1: IE8 doesn't support the opacity property. The values for the filter should be between 0 and 100.
+	================================= */
+@mixin opacity($value){
+	filter: alpha(opacity=($value*100)); // note 1
+	opacity: $value;
+}
+
+/*	==[ GRADIENT ]======================
+	Draws a gradient from the top of the element to the bottom of the element
+	================================= */
+@mixin gradient-top-to-bottom($start-color, $end-color, $noIE, $path...) {
+	background: $start-color; /* Old browsers */
+	background: -moz-linear-gradient(top, $path); /* FF3.6+ */
+	background: -webkit-linear-gradient(top, $path); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $path); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $path); /* IE10+ */
+	background: linear-gradient(to bottom, $path); /* W3C */
+	@if $noIE == false {
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}', GradientType=0 ); /* IE6-9 */
+	}
+}
+
+@mixin gradient-left-to-right($start-color, $end-color, $path...) {
+	background: $start-color; /* Old browsers */
+	background: -moz-linear-gradient(left, $path); /* FF3.6+ */
+	background: -webkit-linear-gradient(left, $path); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, $path); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, $path); /* IE10+ */
+	background: linear-gradient(to right, $path); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$start-color}', endColorstr='#{$end-color}',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin font-variant-numeric($value) {
+	-ms-font-variant-numeric: $value;
+	-moz-font-variant-numeric: $value;
+	-webkit-font-variant-numeric: $value;
+	font-variant-numeric: $value;
+}
+
+@mixin visually-hidden {
+	height: 1px;
+	left: -10000px;
+	overflow: hidden;
+	position: absolute;
+	top: auto;
+	width: 1px;
+}
+
+@mixin transition($values...) {
+	-webkit-transition: $values;
+	-moz-transition: $values;
+	-ms-transition: $values;
+	-o-transition: $values;
+	transition: $values;
+}
+
+/*	==[ USER-SELECT ]===================
+	1: IE only supports the prefixed property in 10+
+	2: Firefox supports the prefixed property in versions 19 and up
+	3: This disables the actionsheet shown when you touch and hold a link in iOS
+	4: Currently all webkit based browsers need the prefixed property
+	================================= */
+@mixin user-select {
+	-ms-user-select: none; // note 1
+	-moz-user-select: none; // note 2
+	-webkit-touch-callout: none; // note 3
+	-webkit-user-select: none; // note 4
+	user-select: none;
+}
+
+@mixin transition($properties...) {
+	-webkit-transition:$properties;
+	-moz-transition:$properties;
+	-ms-transition:$properties;
+	-o-transition:$properties;
+	transition:$properties;
+}

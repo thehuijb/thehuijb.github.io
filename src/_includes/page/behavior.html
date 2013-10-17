@@ -1,0 +1,121 @@
+
+<!-- Shims to get this working on some older browsers <= IE9 (should of course be minimized in real life) -->
+<!--[if lte IE 9]>
+<script src="{{ site.url }}/static/js/shim/Array.isArray.js"></script>
+<script src="{{ site.url }}/static/js/shim/Array.indexOf.js"></script>
+<script src="{{ site.url }}/static/js/shim/Array.forEach.js"></script>
+<script src="{{ site.url }}/static/js/shim/Object.create.js"></script>
+<script src="{{ site.url }}/static/js/shim/Object.keys.js"></script>
+<script src="{{ site.url }}/static/js/shim/Function.bind.js"></script>
+<script src="{{ site.url }}/static/js/shim/getComputedStyle.js"></script>
+<script src="{{ site.url }}/static/js/shim/matchMedia/matchMedia.js"></script>
+<script src="{{ site.url }}/static/js/shim/matchMedia/matchMedia.addListener.js"></script>
+<![endif]-->
+
+<!-- old stuff last, matchmedia won't be loaded if browser does not have addEventListener support, so we'll load shim now -->
+<!--[if lte IE 8]>
+<script src="{{ site.url }}/static/js/shim/DOMContentLoaded.js"></script>
+<script src="{{ site.url }}/static/js/shim/addEventListener.js"></script>
+<![endif]-->
+
+<script src="{{ site.url }}/static/js/vendor/jrburke/require.js"></script>
+<!--<script src="{{ site.url }}/static/js.min/built.js"></script>-->
+<script>
+
+	requirejs.config({
+		baseUrl:'{{ site.url }}/static/js/cz',
+		shim:{
+			'parsley':['jquery'],
+			'moment':'moment'
+		},
+		paths:{
+			'parsley':'../vendor/guillaumepotier/parsley',
+			'domready':'../vendor/jrburke/domready',
+			'jquery':'../vendor/jquery/jquery',
+			'modernizr':'../vendor/modernizr/modernizr-wrapper',
+			'spinner':'../vendor/fgnass/spin.min',
+			'conditioner':'../vendor/rschennink/conditioner',
+			'moment':'../vendor/timrwood/moment',
+			'pikaday':'../vendor/dbushell/pikaday'
+		}
+	});
+
+	requirejs(['jquery','conditioner','moment','domready!'],function($,conditioner, moment) {
+		conditioner.setOptions({
+			'modules':{
+				'ui/datepicker':{
+					'options':{
+						'inputFormat':'DD-MM-YYYY',
+						'locale':{
+							'label':'Kalender',
+							'previousMonth':'Vorige Maand',
+							'nextMonth':'Volgende Maand'
+						}
+					}
+				},
+				'data/dataprovider': {
+					'options': {
+						'peildatum':'2014-01-01',
+						'landcode':'NL',
+						'collectiviteitnummer':'19'
+					}
+				},
+				'ui/form':{
+					'options':{
+						'validation':{
+							'label':{
+								'valid':'valideerd'
+							},
+							'validators':{
+								'agemin':function(val,min) {
+									if (!val) {
+										return false;
+									}
+									return moment().diff(moment(val,'DD-MM-YYYY'),'years',true) >= min;
+								},
+								'agemax':function(val,max) {
+									if (!val) {
+										return false;
+									}
+									return moment().diff(moment(val,'DD-MM-YYYY'),'years',true) <= max;
+								},
+								'beforedate':function(val,max) {
+									var ts = typeof max === 'string' ? parseInt(max,10) : max;
+									if (!val) {
+										return false;
+									}
+									var m = moment(val,'DD-MM-YYYY');
+									return m.isSame(ts,'day') || m.isBefore(ts);
+								},
+								'afterdate':function(val,min) {
+									var ts = typeof min === 'string' ? parseInt(min,10) : min;
+									if (!val) {
+										return false;
+									}
+									var m = moment(val,'DD-MM-YYYY');
+									return m.isSame(ts,'day') || m.isAfter(ts);
+								}
+							},
+							'formatters':{
+								'%d':function(val) {
+									var ts = typeof val === 'string' ? parseInt(val,10) : val;
+									return moment(ts).format('DD-MM-YYYY');
+								}
+							},
+							'messages':{
+								'beforedate':'De ingevoerde datum moet voor %d liggen.',
+								'afterdate':'De ingevoerde datum moet na %d liggen.',
+								'required':'Dit veld is verplicht.',
+								'email':'Het ingevoerde email adres is ongeldig.'
+							}
+						}
+					}
+				}
+			}
+		});
+
+		conditioner.loadModules(document);
+
+	});
+
+</script>
