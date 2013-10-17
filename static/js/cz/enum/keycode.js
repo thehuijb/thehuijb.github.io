@@ -1,3 +1,0 @@
-define({
-	'ESCAPE':27
-});
