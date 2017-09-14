@@ -1,0 +1,249 @@
+<h1 id="quick-wins-een-eerste-blik-op-web-toegankelijkheid">Quick Wins - Een eerste blik op Web Toegankelijkheid</h1>
+
+
+
+<h2 id="introductie">Introductie</h2>
+
+<p><strong>Dit document is een hulpmiddel voor de eerste stappen richting het toegankelijk maken van een webpagina. Met deze controles kun je een idee krijgen van de status van toegankelijkheid van een webpagina.</strong></p>
+
+
+
+<h2 id="scope">Scope</h2>
+
+<p>Deze controles behandelen slechts een paar aandachtspunten mbt toegankelijkheid en zijn bedoeld om een snel beeld te krijgen van een webpagina en niet een uitgebreid beeld. Het zou zo kunnen zijn dat een webpagina deze checks doorstaat maar nog steeds grote toegankelijkheidsissues bevat, om die allemaal boven water te krijgen zijn uitgebreidere tests nodig.</p>
+
+<p><div class="toc">
+<ul>
+<li><a href="#quick-wins-een-eerste-blik-op-web-toegankelijkheid">Quick Wins - Een eerste blik op Web Toegankelijkheid</a><ul>
+<li><a href="#introductie">Introductie</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#controles">Controles</a><ul>
+<li><a href="#basistaal-en-taalwisselingen">Basistaal (en taalwisselingen)</a><ul>
+<li><a href="#richtlijn">richtlijn</a></li>
+<li><a href="#check">check</a></li>
+</ul>
+</li>
+<li><a href="#paginatitel">Paginatitel</a><ul>
+<li><a href="#richtlijn-1">richtlijn</a></li>
+<li><a href="#check-1">check</a></li>
+</ul>
+</li>
+<li><a href="#koppen">Koppen</a><ul>
+<li><a href="#richtlijn-2">richtlijn</a></li>
+<li><a href="#check-2">check</a></li>
+</ul>
+</li>
+<li><a href="#afbeeldingen">Afbeeldingen</a><ul>
+<li><a href="#richtlijn-3">richtlijn</a></li>
+<li><a href="#check-3">check</a></li>
+</ul>
+</li>
+<li><a href="#kleurgebruik-en-contrast">Kleurgebruik en contrast</a><ul>
+<li><a href="#richtlijn-4">richtlijn</a></li>
+<li><a href="#check-4">check</a></li>
+</ul>
+</li>
+<li><a href="#toetsenbord-toegankelijk">Toetsenbord toegankelijk</a><ul>
+<li><a href="#richtlijn-5">richtlijn</a></li>
+<li><a href="#check-5">check</a></li>
+</ul>
+</li>
+<li><a href="#formulieren">Formulieren</a><ul>
+<li><a href="#richtlijn-6">richtlijn</a></li>
+<li><a href="#check-6">check</a></li>
+</ul>
+</li>
+<li><a href="#video">Video</a><ul>
+<li><a href="#richtlijn-7">richtlijn</a></li>
+<li><a href="#check-7">check</a></li>
+</ul>
+</li>
+<li><a href="#contextwijzigingen">Contextwijzigingen</a><ul>
+<li><a href="#richtlijn-8">richtlijn</a></li>
+<li><a href="#check-8">check</a></li>
+</ul>
+</li>
+<li><a href="#code">Code</a><ul>
+<li><a href="#richtlijn-8-1">richtlijn</a></li>
+<li><a href="#check-8-1">check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
+
+<h2 id="controles">Controles</h2>
+
+<h3 id="basistaal-en-taalwisselingen">Basistaal (en taalwisselingen)</h3>
+
+<h4 id="richtlijn">richtlijn</h4>
+
+<p>Ten behoeve van ondersteunende technologie moet de html tag voorzien zijn van een taal attribuut(lang attribute). Hiermee kan bijvoorbeeld een screenreader bepalen in welke taal de inhoud moet worden voorgelezen, maar ook kan google de pagina beter indexeren. </p>
+
+<h4 id="check">check</h4>
+
+<p>inspecteer de paginabron en controleer of de html tag voorzien is van een lang attribuut</p>
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">html</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">"nl-NL"</span>&gt;</span></code></pre>
+
+
+
+<h3 id="paginatitel">Paginatitel</h3>
+
+
+
+<h4 id="richtlijn-1">richtlijn</h4>
+
+<p>De paginatitel moet de inhoud van de pagina kort samenvatten en uniek zijn binnen de website.</p>
+
+<h4 id="check-1">check</h4>
+
+<p>Controleer dat de title tag uniek is en duidelijk weergeeft waar de pagina over gaat. </p>
+
+
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>duidelijk en uniek<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span></code></pre>
+
+
+
+<h3 id="koppen">Koppen</h3>
+
+
+
+<h4 id="richtlijn-2">richtlijn</h4>
+
+<p>Webpagina’s zijn vaak opgedeeld in verschillende onderdelen die zijn voorzien van koppen of titels. Deze koppen of titels moeten voorzien zijn van de juiste html-tags waarbij er geen kopniveaus worden overgeslagen</p>
+
+<h4 id="check-2">check</h4>
+
+<p>Controleer dat de pagina minstens en maximaal 1 <code>&lt;h1&gt;</code> kop heeft en dat de overige koppen binnen een duidelijke hiërarchie vallen, dus controleer dat er geen ontbrekende <code>&lt;h#&gt;</code> tags zijn. </p>
+
+
+
+<pre class="prettyprint"><code class="language-html hljs ">correct:
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>kop niveau 1<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>kop niveau 2<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>kop niveau 2<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+fout:
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>kop niveau 1<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span> -- level 2 overgeslagen
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>kop niveau 2<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>kop niveau 1<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span> -- tweede level 1 kop
+        <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>kop niveau 2<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h3</span>&gt;</span>kop niveau 3<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span></code></pre>
+
+
+
+<h3 id="afbeeldingen">Afbeeldingen</h3>
+
+<h4 id="richtlijn-3">richtlijn</h4>
+
+<p>Voor functionele afbeeldingen geldt dat ze altijd moeten zijn voorzien van een duidelijk beschrijvend tekstueel alternatief (alt tekst), decoratieve afbeeldingen hebben een leeg alt <code>alt=""</code> attribuut of zijn via CSS geplaatst.</p>
+
+<h4 id="check-3">check</h4>
+
+<p>Controleer dat de img tag voorzien is van een alt attribuut. </p>
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"pad/naar/afbeelding"</span> <span class="hljs-attribute">alt</span>=<span class="hljs-value">"duidelijk beschrijvend tekstueel alternatief"</span>&gt;</span></code></pre>
+
+
+
+<h3 id="kleurgebruik-en-contrast">Kleurgebruik en contrast</h3>
+
+<h4 id="richtlijn-4">richtlijn</h4>
+
+<p>Om een goede ondersteuning te bieden voor mensen met een visuele beperking zoals bijvoorbeeld kleurenblindheid moet er op gelet worden dat kleur niet als enige middel wordt gebruikt om informatie over te brengen,  tot een reactie op te roepen. Let ook op het contrast, dit moet voldoen aan 4,5:1 bij normale tekst en 3:1 bij grote tekst (18pt of 14pt dikgedrukt)</p>
+
+<h4 id="check-4">check</h4>
+
+<p>Controleer dat bijvoorbeeld foutmeldingen ook zonder kleur duidelijkheid verschaffen en of de contrast ratio voldoende is. <br>
+Gebruik hiervoor applicaties, plugins of browser extensies. Bijvoorbeeld de chrome extensie “WCAG Luminosity Contrast Ratio Analyzer”. hiermee kun je contrast ratio controleren en ook de pagina bekijken als een kleurenblinde.</p>
+
+<h3 id="toetsenbord-toegankelijk">Toetsenbord toegankelijk</h3>
+
+<h4 id="richtlijn-5">richtlijn</h4>
+
+<p>Alle functionaliteit op de webpagina moet kunnen worden bediend met het toetsenbord, hierbij moet je ook zorgen voor een logische tabvolgorde en zorgen dat de focus zichtbaar is.</p>
+
+<h4 id="check-5">check</h4>
+
+<p>Controleer dat je alle interactieve elementen en links kunt bereiken met het toetsenbord en dat je ook ziet waar je bent.</p>
+
+<h3 id="formulieren">Formulieren</h3>
+
+<h4 id="richtlijn-6">richtlijn</h4>
+
+<p>Zorg dat alle invoervelden voorzien zijn van goed beschrijvende <code>&lt;label&gt;</code> elementen en plaats belangrijke instructie binnen dit label. om radiobuttons of checkboxen te groeperen moeten de <code>&lt;fieldset&gt;</code> en <code>&lt;legend&gt;</code> elementen worden gebruikt. fout-indicaties moeten de gemaakte fout duidelijk weergeven evenals in welk invoerveld de fout zit </p>
+
+<h4 id="check-6">check</h4>
+
+<p>Controleer dat input velden voorzien zijn van een label</p>
+
+
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">label</span>&gt;</span>beschrijvende tekst<span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">".."</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span></code></pre>
+
+<p>of </p>
+
+
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">for</span>=<span class="hljs-value">"inputid"</span>&gt;</span>beschrijvende tekst<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">".."</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"inputid"</span>&gt;</span></code></pre>
+
+<p>Controleer dat gegroepeerde radiobuttons en checkboxen voorzien zijn van fieldset en legend</p>
+
+<pre class="prettyprint"><code class="language-html hljs "><span class="hljs-tag">&lt;<span class="hljs-title">fieldset</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">legend</span>&gt;</span>beschrijvende tekst<span class="hljs-tag">&lt;/<span class="hljs-title">legend</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox/radiobutton"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox/radiobutton"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">fieldset</span>&gt;</span></code></pre>
+
+<p>Controleer dat foutmeldingen duidelijk aangeven wat er fout is en welk invoerveld fout is</p>
+
+
+
+<h3 id="video">Video</h3>
+
+
+
+<h4 id="richtlijn-7">richtlijn</h4>
+
+<p>Video moet voorzien zijn van een audiodescriptie en ondertiteling, moet te pauzeren en te stoppen zijn</p>
+
+
+
+<h4 id="check-7">check</h4>
+
+<p>Controleer video op al deze mogelijkheden.</p>
+
+
+
+<h3 id="contextwijzigingen">Contextwijzigingen</h3>
+
+<h4 id="richtlijn-8">richtlijn</h4>
+
+<p>Grote gebeurtenissen, zoals het verzenden van formulieren en het openen van nieuwe vensters, worden contextwijzigingen genoemd. Ook het automatisch geven van focus aan een ander element in een formulier of op de website is een contextwijziging. Ook als een bezoeker een veld in een formulier invult, een selectievakje of keuzerondje aanklikt of een waarde kiest uit een keuzelijst mag er geen contextwijziging plaatsvinden, tenzij de bezoeker daarover is geïnformeerd. Informeren betekent dat in een tekst die vóór het betreffende veld staat is aangegeven wat er zal gebeuren als de bezoeker het veld invult of een optie selecteert. Zorg dat de context alleen door toedoen van de bezoeker kan wijzigen.</p>
+
+<h4 id="check-8">check</h4>
+
+<p>Controleer bij formulieren dat het invullen of selecteren van velden niet een onverwachte contextwijziging optreed. Denk hierbij bijvoorbeeld aan een datumveld opgebouwd uit drie invoervelden waarbij de focus verspringt tijdens het invoeren, maar ook het verschijnen van extra invoervelden op basis van een gemaakte selectie, of juist het verdwijnen hiervan. </p>
+
+<h3 id="code">Code</h3>
+
+
+
+<h4 id="richtlijn-8">richtlijn</h4>
+
+<p>Een webpagina is opgebouwd uit Html, gebruik semantisch correcte elementen die duidelijk weergeven wat voor type content er wordt getoond en gebruik geen afgekeurde elementen en attributen. Als elementen een id attribuut hebben zorg er dan voor dat dit id uniek is binnen de pagina. <br>
+JavaScript is toegestaan, mits geen toegankelijkheidsproblemen worden veroorzaakt. Houd JavaScript gescheiden van de HTML-code (geen inline javascript). <br>
+Gebruik CSS voor de opmaak, los van de HTML-code (geen inline styling)</p>
+
+<h4 id="check-8">check</h4>
+
+<p>Controleer de code van de pagina met dev-tools en kijk of er semantische elementen zijn gebruikt en of de javascript en css gescheiden zijn van de html </p>
