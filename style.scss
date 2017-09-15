@@ -170,14 +170,16 @@ img {
 .site-info-wrapper {
   display: flex;
   align-items: flex-end;
-  min-width: 320px;
+  min-width: 300px;
 }
 .site-avatar {
   width: 70px;
   height: 70px;
   flex:0 0 70px;
   margin-right: 15px;
-
+  @include mobile {
+    margin-right: 10px;
+  }    
   img {
     border-radius: 5px;
   }
@@ -208,19 +210,27 @@ nav {
   @include mobile {
     font-size: 16px;
   }
-
+  
   a {
     margin-left: 20px;
     color: $darkGray;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
-
+    
     @include mobile {
       margin: 0 10px 0 0;
       color: $blue;
     }
   }
+
+  > ul {
+    padding-left:0;
+    li > a {
+      margin-left:0;
+    }
+  }
+
 }
 
 //
