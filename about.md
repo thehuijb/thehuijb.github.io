@@ -1,15 +1,15 @@
 ---
 layout: page
-title: About
 permalink: /about/
+title: Over Serge's blog
 ---
 
-Some information about you!
+Hier volgt informatie over mijzelf
 
-### More Information
+### Meer Informatie
 
-A place to include any other types of information that you'd like to include about yourself.
+Naast Front-end developer ben ik ook nog vader van twee jongens en gehuwd.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+<!-- [email@domain.com](mailto:email@domain.com) -->
