@@ -1,0 +1,4 @@
+Sitemap: https://thehuijb.com/sitemap.xml
+
+User-agent: *
+Disallow:

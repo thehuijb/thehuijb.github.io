@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: main
 permalink: /about/
 title: Over Serge's blog
 ---

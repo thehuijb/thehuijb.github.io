@@ -1,0 +1,72 @@
+<nav class="paginator">
+    <div class="paginator-inner">
+      {% if page.url != pagination.href.first %}
+        <a href="{{ pagination.href.first }}">
+          <button class="paginator-text">
+            First
+          </button>
+        </a>
+      {% else %}
+        <button class="paginator-text">
+          First
+        </button>
+      {% endif %}
+      
+
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}">
+          <button class="paginator-prev">
+            <img src="/assets/img/chevron-left.svg" alt="prev">
+          </button>
+        </a>
+      {% else %}
+        <button class="paginator-prev" disabled>
+          <img src="/assets/img/chevron-left.svg" alt="prev">
+        </button>
+      {% endif %}
+
+      {% for pageEntry in pagination.pages %}
+        {% if page.url ==  pagination.hrefs[forloop.index0] %} 
+          <a href="{{ pagination.hrefs[forloop.index0] }}" aria-current="page">
+            <button class="paginator-page">
+              {{ forloop.index }}
+            </button>
+          </a>
+        {% else %}
+          <a href="{{ pagination.hrefs[forloop.index0] }}">
+            <button class="paginator-page">
+              {{ forloop.index }}
+            </button>
+          </a>
+        {% endif %}
+      {% endfor %}
+
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}">
+          <button class="paginator-next">
+            <img src="/assets/img/chevron-right.svg" alt="next">
+          </button>
+        </a>
+      {% else %}
+        <button class="paginator-next" disabled>
+          <img src="/assets/img/chevron-right.svg" alt="next">
+        </button>
+      {% endif %}
+
+
+      {% if page.url != pagination.href.last %}
+        <a href="{{ pagination.href.last }}">
+          <button class="paginator-text">
+            Last
+          </button>
+        </a>
+      {% else %}
+        <button class="paginator-text">
+          Last
+        </button>
+      {% endif %}
+      
+    </div>
+
+</nav>

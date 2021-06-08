@@ -1,0 +1,40 @@
+---
+layout: main
+pagination:
+  data: collections.posts
+  size: 10
+  reverse: true
+  alias: posts
+---
+
+<div class="posts">
+  {% for post in pagination.items %}
+  {% if post.data.published %}
+    <article class="post">
+
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.data.title }}</a></h2>
+      <p>
+        <span class="post-date"><em>{{ post.date | date: "%Y-%m-%d" }}</em></span>
+        <span class="post-readtime"> &middot; {{ post.templateContent | readTime }} min read</span>
+      </p>
+
+      <div class="entry">
+        {{ post.data.post_excerpt }}...<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Lees meer</a>
+      </div>
+      <div class="post-tags">
+        <div class="post-tag">
+          {% for tag in post.data.tags %}
+          {% if tag != "posts" %}
+          <a href="/tags/{{ tag }}" class="tag">
+            <div class="post-tag">{{ tag }}</div>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+  {% endif %}
+  {% endfor %}
+  
+  {% include paginator.html %}
+</div>

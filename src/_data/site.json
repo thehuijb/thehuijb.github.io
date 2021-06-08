@@ -1,0 +1,17 @@
+{
+	"title": "Serge's Blog",
+	"description": "Onderwerpen die er toe doen",
+	"url": "https://www.thehuijb.com",
+	"baseurl": "",
+	"repo": "https://github.com/thehuijb/thehuijb.github.io",
+	"comments": false,
+	"author": "Serge Huijben",
+	"bio": "Front-end developer",
+	"avatar": "https://avatars2.githubusercontent.com/u/902441?v=3&s=460",
+	"avatar_alt": "three emperor penguins in their natural environment",
+	"og_locale": "nl_NL",
+	"footer-links": {
+		"github": "thehuijb",
+		"twitter": "thehuijb"
+	}
+}
