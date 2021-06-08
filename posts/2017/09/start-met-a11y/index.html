@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+
+<head>
+	<title> – Onderwerpen die er toe doen</title>
+
+	    <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    
+    <meta name="description" content="Onderwerpen die er toe doen">
+    <meta property="og:description" content="Onderwerpen die er toe doen" />
+    
+    <meta name="author" content="Serge Huijben" />
+
+    
+
+	<link rel="stylesheet" type="text/css" href="/assets/styles/style.css" />
+	<link rel="alternate" type="application/rss+xml" title=" - Onderwerpen die er toe doen" href="/feed.xml" />
+
+</head>
+
+<body>
+	
+<div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead">
+      <div class="site-info-wrapper">
+        <a href="/" class="site-avatar"><img src="https://avatars2.githubusercontent.com/u/902441?v=3&s=460" alt="three emperor penguins in their natural environment" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Serge's Blog</a></h1>
+          <h2 class="site-author">Serge Huijben</h2>
+          <p class="site-description">Front-end developer</p>
+        </div>
+      </div>
+      <nav>
+  <a href="/">Blog</a>
+  <a href="/tags">Tags</a>
+  <a href="/about">Over</a>
+</nav>
+
+    </header>
+  </div>
+</div>
+
+<main id="main" class="main container">
+  
+<article class="post">
+  <h2>Easy A11y checks - Een eerste stap richting Web Toegankelijkheid</h2>
+
+  <div class="entry">
+    <h3>Introductie</h3>
+    <p>Dit document is een hulpmiddel voor de eerste stappen richting het toegankelijk maken van een webpagina. Met deze controles kun je een idee krijgen van de status van toegankelijkheid van een webpagina.</p>
+<h3>Scope</h3>
+<p>Deze 10 controles behandelen slechts een paar aandachtspunten mbt toegankelijkheid en zijn bedoeld om een snel beeld te krijgen van een webpagina en niet een uitgebreid beeld. Het zou zo kunnen zijn dat een webpagina deze checks doorstaat maar nog steeds grote toegankelijkheidsissues bevat, om die allemaal boven water te krijgen zijn uitgebreidere tests nodig.</p>
+<nav class="toc" role="navigation">
+	<ul>
+		<li><a href="#controles">Controles</a>
+			<ol>
+				<li><a href="#basistaal-en-taalwisselingen">Basistaal (en taalwisselingen)</a></li>
+				<li><a href="#paginatitel">Paginatitel</a></li>
+				<li><a href="#koppen">Koppen</a></li>
+				<li><a href="#afbeeldingen">Afbeeldingen</a></li>
+				<li><a href="#toetsenbord-toegankelijk">Toetsenbord toegankelijk</a></li>
+				<li><a href="#formulieren">Formulieren</a></li>
+				<li><a href="#video">Video</a></li>
+				<li><a href="#kleurgebruik-en-contrast">Kleurgebruik en contrast</a></li>
+				<li><a href="#contextwijzigingen">Contextwijzigingen</a></li>
+				<li><a href="#code">Code</a></li>
+			</ol>
+		</li>
+	</ul>
+</nav>
+<h3>Controles</h3>
+<h4>Basistaal (en taalwisselingen)</h4>
+<h5>richtlijn</h5>
+<p>Ten behoeve van ondersteunende technologie moet de html tag voorzien zijn van een taal attribuut(lang attribute). Hiermee kan bijvoorbeeld een screenreader bepalen in welke taal de inhoud moet worden voorgelezen, maar ook kan google de pagina beter indexeren.</p>
+<h5>check</h5>
+<p>inspecteer de paginabron en controleer of de html tag voorzien is van een lang attribuut</p>
+<pre><code class="language-html">&lt;html lang=&quot;nl-NL&quot;&gt;
+
+</code></pre>
+<h4>Paginatitel</h4>
+<h5>richtlijn</h5>
+<p>De paginatitel moet de inhoud van de pagina kort samenvatten en uniek zijn binnen de website.</p>
+<h5>check</h5>
+<p>Controleer dat de title tag uniek is en duidelijk weergeeft waar de pagina over gaat.</p>
+<pre><code class="language-html">&lt;head&gt;&lt;title&gt;duidelijk en uniek&lt;/title&gt;&lt;/head&gt;
+
+</code></pre>
+<h4>Koppen</h4>
+<h5>richtlijn</h5>
+<p>Webpagina's zijn vaak opgedeeld in verschillende onderdelen die zijn voorzien van koppen of titels. Deze koppen of titels moeten voorzien zijn van de juiste html-tags waarbij er geen kopniveaus worden overgeslagen</p>
+<h5>check</h5>
+<p>Controleer dat de pagina minstens en maximaal 1 <code>&lt;h1&gt;</code> kop heeft en dat de overige koppen binnen een duidelijke hiërarchie vallen, dus controleer dat er geen ontbrekende <code>&lt;h#&gt;</code> tags zijn.</p>
+<pre><code class="language-html">correct:
+  &lt;h1&gt;kop niveau 1&lt;/h1&gt;
+    &lt;h2&gt;kop niveau 2&lt;/h2&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+    &lt;h2&gt;kop niveau 2&lt;/h2&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+fout:
+  &lt;h1&gt;kop niveau 1&lt;/h1&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt; -- level 2 overgeslagen
+    &lt;h2&gt;kop niveau 2&lt;/h2&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+  &lt;h1&gt;kop niveau 1&lt;/h1&gt; -- tweede level 1 kop
+    &lt;h2&gt;kop niveau 2&lt;/h2&gt;
+      &lt;h3&gt;kop niveau 3&lt;/h3&gt;
+
+</code></pre>
+<h4>Afbeeldingen</h4>
+<h5>richtlijn</h5>
+<p>Voor functionele afbeeldingen geldt dat ze altijd moeten zijn voorzien van een duidelijk beschrijvend tekstueel alternatief (alt tekst), decoratieve afbeeldingen hebben een leeg alt <code>alt=&quot;&quot;</code> attribuut of zijn via CSS geplaatst.</p>
+<h5>check</h5>
+<p>Controleer dat de img tag voorzien is van een alt attribuut.</p>
+<pre><code class="language-html">&lt;img src=&quot;pad/naar/afbeelding&quot; alt=&quot;duidelijk beschrijvend tekstueel alternatief&quot;&gt;
+
+</code></pre>
+<h4>Toetsenbord toegankelijk</h4>
+<h5>richtlijn</h5>
+<p>Alle functionaliteit op de webpagina moet kunnen worden bediend met het toetsenbord, hierbij moet je ook zorgen voor een logische tabvolgorde en zorgen dat de focus zichtbaar is.</p>
+<h5>check</h5>
+<p>Controleer dat je alle interactieve elementen en links kunt bereiken met het toetsenbord en dat je ook ziet waar je bent.</p>
+<h4>Formulieren</h4>
+<h5>richtlijn</h5>
+<p>Zorg dat alle invoervelden voorzien zijn van goed beschrijvende <code>&lt;label&gt;</code> elementen en plaats belangrijke instructie binnen dit label. om radiobuttons of checkboxen te groeperen moeten de <code>&lt;fieldset&gt;</code> en <code>&lt;legend&gt;</code> elementen worden gebruikt. fout-indicaties moeten de gemaakte fout duidelijk weergeven evenals in welk invoerveld de fout zit</p>
+<h5>check</h5>
+<p>Controleer dat input velden voorzien zijn van een label</p>
+<pre><code class="language-html">&lt;label&gt;beschrijvende tekst
+  &lt;input type=&quot;..&quot;&gt;
+&lt;/label&gt;
+
+</code></pre>
+<p>of</p>
+<pre><code class="language-html">&lt;label for=&quot;inputid&quot;&gt;beschrijvende tekst&lt;/label&gt;
+&lt;input type=&quot;..&quot; id=&quot;inputid&quot;&gt;
+
+</code></pre>
+<p>Controleer dat gegroepeerde radiobuttons en checkboxen voorzien zijn van fieldset en legend</p>
+<pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;beschrijvende tekst&lt;/legend&gt;
+  &lt;input type=&quot;checkbox/radiobutton&quot;&gt;
+  &lt;input type=&quot;checkbox/radiobutton&quot;&gt;
+&lt;/fieldset&gt;
+
+</code></pre>
+<p>Controleer dat foutmeldingen duidelijk aangeven wat er fout is en welk invoerveld fout is</p>
+<h4>Video</h4>
+<h5>richtlijn</h5>
+<p>Video moet voorzien zijn van een audiodescriptie en ondertiteling, moet te pauzeren en te stoppen zijn</p>
+<h5>check</h5>
+<p>Controleer video op al deze mogelijkheden.</p>
+<h4>Kleurgebruik en contrast</h4>
+<h5>richtlijn</h5>
+<p>Om een goede ondersteuning te bieden voor mensen met een visuele beperking zoals bijvoorbeeld kleurenblindheid moet er op gelet worden dat kleur niet als enige middel wordt gebruikt om informatie over te brengen,  tot een reactie op te roepen. Let ook op het contrast, dit moet voldoen aan 4,5:1 bij normale tekst en 3:1 bij grote tekst (18pt of 14pt dikgedrukt)</p>
+<h5>check</h5>
+<p>Controleer dat bijvoorbeeld foutmeldingen ook zonder kleur duidelijkheid verschaffen en of de contrast ratio voldoende is.
+Gebruik hiervoor applicaties, plugins of browser extensies. Bijvoorbeeld de chrome extensie &quot;WCAG Luminosity Contrast Ratio Analyzer&quot;. hiermee kun je contrast ratio controleren en ook de pagina bekijken als een kleurenblinde.</p>
+<h4>Contextwijzigingen</h4>
+<h5>richtlijn</h5>
+<p>Grote gebeurtenissen, zoals het verzenden van formulieren en het openen van nieuwe vensters, worden contextwijzigingen genoemd. Ook het automatisch geven van focus aan een ander element in een formulier of op de website is een contextwijziging. Ook als een bezoeker een veld in een formulier invult, een selectievakje of keuzerondje aanklikt of een waarde kiest uit een keuzelijst mag er geen contextwijziging plaatsvinden, tenzij de bezoeker daarover is geïnformeerd. Informeren betekent dat in een tekst die vóór het betreffende veld staat is aangegeven wat er zal gebeuren als de bezoeker het veld invult of een optie selecteert. Zorg dat de context alleen door toedoen van de bezoeker kan wijzigen.</p>
+<h5>check</h5>
+<p>Controleer bij formulieren dat het invullen of selecteren van velden niet een onverwachte contextwijziging optreed. Denk hierbij bijvoorbeeld aan een datumveld opgebouwd uit drie invoervelden waarbij de focus verspringt tijdens het invoeren, maar ook het verschijnen van extra invoervelden op basis van een gemaakte selectie, of juist het verdwijnen hiervan.</p>
+<h4>Code</h4>
+<h5>richtlijn</h5>
+<p>Een webpagina is opgebouwd uit Html, gebruik semantisch correcte elementen die duidelijk weergeven wat voor type content er wordt getoond en gebruik geen afgekeurde elementen en attributen. Als elementen een id attribuut hebben zorg er dan voor dat dit id uniek is binnen de pagina.
+JavaScript is toegestaan, mits geen toegankelijkheidsproblemen worden veroorzaakt. Houd JavaScript gescheiden van de HTML-code (geen inline javascript).
+Gebruik CSS voor de opmaak, los van de HTML-code (geen inline styling)</p>
+<h5>check</h5>
+<p>Controleer de code van de pagina met dev-tools en kijk of er semantische elementen zijn gebruikt en of de javascript en css gescheiden zijn van de html</p>
+
+  </div>
+
+  <div class="date">
+    Written on September 14, 2017
+  </div>
+
+  
+</article>
+
+</main>
+
+<div class="wrapper-footer">
+  <div class="container">
+    <footer class="footer">
+      
+
+
+
+<a href="https://github.com/thehuijb"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/thehuijb"><i class="svg-icon twitter"></i></a>
+
+
+    </footer>
+  </div>
+</div>
+	
+
+</body>
+
+</html>
