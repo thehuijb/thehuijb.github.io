@@ -2,9 +2,10 @@
 //
 // VARIABLES
 //
-
 // Colors
 $blue: #4183C4;
+$dark-mode-code-color: hsl(90 50% 50%);
+$light-mode-code-color: hsl(120 80% 35%);
 
 // Grays
 $black: #000;
@@ -19,9 +20,33 @@ $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
-// Mobile breakpoints
-@mixin mobile {
-  @media screen and (max-width: 640px) {
-    @content;
+// css custom properties
+:root {
+  --color-accent: #{$blue};
+  --color-code: #{$dark-mode-code-color};
+ 
+  --color-grayscale-000: #{$white};
+  --color-grayscale-020: #{$lightGray};
+  --color-grayscale-030: #{$lightGray};
+  --color-grayscale-060: #{$gray};
+  --color-grayscale-090: #{$black};
+  --color-grayscale-100: #{$darkerGray};
+  
+  @media (prefers-color-scheme: light) {
+    --color-code: #{$light-mode-code-color};
+    --color-grayscale-000: #{$black};
+    --color-grayscale-020: #{$darkerGray};
+    --color-grayscale-030: #{$darkGray};
+    --color-grayscale-060: #{$gray};
+    --color-grayscale-090: #{$lightGray};
+    --color-grayscale-100: #{$white};
+  }
+  --space-measure: 10px;
+  --heading-line-height: 1.4;
+
+  // Mobile breakpoints
+  @media screen and (min-width: 640px) {
+    --space-measure: 20px;
+    --heading-line-height: 1.7;
   }
 }

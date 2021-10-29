@@ -16,30 +16,27 @@ html {
 }
 
 body {
-	background: $white;
+	background: var(--color-grayscale-100);
   font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  color: var(--color-grayscale-030);
 }
 
 .container {
   margin: 0 auto;
-  max-width: 740px;
+  max-width: 1440px;
   padding: 0 10px;
   width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
-  color: $darkerGray;
+  color: var(--color-grayscale-020);
   font-weight: bold;
 
-  line-height: 1.7;
+  line-height: var(--heading-line-height);
   margin: 1em 0 15px;
   padding: 0;
 
-  @include mobile {
-    line-height: 1.4;
-  }
 }
 
 h1 {
@@ -59,7 +56,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: var(--color-grayscale-060);
 }
 
 p {
@@ -67,11 +64,11 @@ p {
 }
 
 a {
-  color: $blue;
+  color: var(--color-accent);
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: var(--color-accent);
   }
 }
 
@@ -118,17 +115,17 @@ img {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: var(--color-grayscale-060);
 }
 
 // Specify the color of the selection
 ::-moz-selection {
   color: $black;
-  background: $lightGray;
+  background: var(--color-grayscale-090);
 }
 ::selection {
   color: $black;
-  background: $lightGray;
+  background: var(--color-grayscale-090);
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -156,17 +153,12 @@ img {
 }
 
 .masthead {
-  padding: 20px 0;
+  padding: var(--space-measure) 0;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
   border-bottom: 1px solid $lightGray;
-  
-  @include mobile {
-    padding: 10px 0;
-    text-align: center;
-  }
 }
 .site-info-wrapper {
   display: flex;
@@ -177,10 +169,7 @@ img {
   width: 70px;
   height: 70px;
   flex:0 0 70px;
-  margin-right: 15px;
-  @include mobile {
-    margin-right: 10px;
-  }    
+  margin-right: var(--space-measure);
   img {
     border-radius: 5px;
   }
@@ -188,7 +177,7 @@ img {
 
 .site-name, .site-author {
   margin: 0;
-  color: $darkGray;
+  color: var(--color-grayscale-030);
   cursor: pointer;
   font-family: $helveticaNeue;
   text-align: left;
@@ -196,30 +185,21 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: var(--color-grayscale-060);
   font-size: 16px;
 }
 
 nav {
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-top: 10px; 
 
-  @include mobile {
-    font-size: 16px;
-  }
-  
   a {
-    margin-left: 20px;
-    color: $darkGray;
+    margin-left: var(--space-measure);
+    color: var(--color-grayscale-030);
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
-    
-    @include mobile {
-      margin: 0 10px 0 0;
-      color: $blue;
-    }
   }
 
   > ul {
@@ -250,7 +230,7 @@ nav {
     margin: 1.8em .8em;
     border-left: 2px solid $gray;
     padding: 0.1em 1em;
-    color: $gray;
+    color: var(--color-grayscale-060);
     font-size: 22px;
     font-style: italic;
   }
@@ -269,7 +249,7 @@ nav {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  background-color: var(--color-grayscale-090);
 }
 
 footer {
