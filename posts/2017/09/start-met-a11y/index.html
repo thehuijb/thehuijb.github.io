@@ -76,15 +76,15 @@
 	</ul>
 </nav>
 <h3>Controles</h3>
-<h4>Basistaal (en taalwisselingen)</h4>
+<h4 id="basistaal-en-taalwisselingen">Basistaal (en taalwisselingen)</h4>
 <h5>richtlijn</h5>
 <p>Ten behoeve van ondersteunende technologie moet de html tag voorzien zijn van een taal attribuut(lang attribute). Hiermee kan bijvoorbeeld een screenreader bepalen in welke taal de inhoud moet worden voorgelezen, maar ook kan google de pagina beter indexeren.</p>
 <h5>check</h5>
 <p>inspecteer de paginabron en controleer of de html tag voorzien is van een lang attribuut</p>
 <pre><code class="language-html">&lt;html lang=&quot;nl-NL&quot;&gt;
-
+  
 </code></pre>
-<h4>Paginatitel</h4>
+<h4 id="paginatitel">Paginatitel</h4>
 <h5>richtlijn</h5>
 <p>De paginatitel moet de inhoud van de pagina kort samenvatten en uniek zijn binnen de website.</p>
 <h5>check</h5>
@@ -92,7 +92,7 @@
 <pre><code class="language-html">&lt;head&gt;&lt;title&gt;duidelijk en uniek&lt;/title&gt;&lt;/head&gt;
 
 </code></pre>
-<h4>Koppen</h4>
+<h4 id="koppen">Koppen</h4>
 <h5>richtlijn</h5>
 <p>Webpagina's zijn vaak opgedeeld in verschillende onderdelen die zijn voorzien van koppen of titels. Deze koppen of titels moeten voorzien zijn van de juiste html-tags waarbij er geen kopniveaus worden overgeslagen</p>
 <h5>check</h5>
@@ -117,7 +117,7 @@ fout:
       &lt;h3&gt;kop niveau 3&lt;/h3&gt;
 
 </code></pre>
-<h4>Afbeeldingen</h4>
+<h4 id="afbeeldingen">Afbeeldingen</h4>
 <h5>richtlijn</h5>
 <p>Voor functionele afbeeldingen geldt dat ze altijd moeten zijn voorzien van een duidelijk beschrijvend tekstueel alternatief (alt tekst), decoratieve afbeeldingen hebben een leeg alt <code>alt=&quot;&quot;</code> attribuut of zijn via CSS geplaatst.</p>
 <h5>check</h5>
@@ -125,12 +125,12 @@ fout:
 <pre><code class="language-html">&lt;img src=&quot;pad/naar/afbeelding&quot; alt=&quot;duidelijk beschrijvend tekstueel alternatief&quot;&gt;
 
 </code></pre>
-<h4>Toetsenbord toegankelijk</h4>
+<h4 id="toetsenbord-toegankelijk">Toetsenbord toegankelijk</h4>
 <h5>richtlijn</h5>
 <p>Alle functionaliteit op de webpagina moet kunnen worden bediend met het toetsenbord, hierbij moet je ook zorgen voor een logische tabvolgorde en zorgen dat de focus zichtbaar is.</p>
 <h5>check</h5>
 <p>Controleer dat je alle interactieve elementen en links kunt bereiken met het toetsenbord en dat je ook ziet waar je bent.</p>
-<h4>Formulieren</h4>
+<h4 id="formulieren">Formulieren</h4>
 <h5>richtlijn</h5>
 <p>Zorg dat alle invoervelden voorzien zijn van goed beschrijvende <code>&lt;label&gt;</code> elementen en plaats belangrijke instructie binnen dit label. om radiobuttons of checkboxen te groeperen moeten de <code>&lt;fieldset&gt;</code> en <code>&lt;legend&gt;</code> elementen worden gebruikt. fout-indicaties moeten de gemaakte fout duidelijk weergeven evenals in welk invoerveld de fout zit</p>
 <h5>check</h5>
@@ -154,23 +154,23 @@ fout:
 
 </code></pre>
 <p>Controleer dat foutmeldingen duidelijk aangeven wat er fout is en welk invoerveld fout is</p>
-<h4>Video</h4>
+<h4 id="video">Video</h4>
 <h5>richtlijn</h5>
 <p>Video moet voorzien zijn van een audiodescriptie en ondertiteling, moet te pauzeren en te stoppen zijn</p>
 <h5>check</h5>
 <p>Controleer video op al deze mogelijkheden.</p>
-<h4>Kleurgebruik en contrast</h4>
+<h4 id="kleurgebruik-en-contrast">Kleurgebruik en contrast</h4>
 <h5>richtlijn</h5>
 <p>Om een goede ondersteuning te bieden voor mensen met een visuele beperking zoals bijvoorbeeld kleurenblindheid moet er op gelet worden dat kleur niet als enige middel wordt gebruikt om informatie over te brengen,  tot een reactie op te roepen. Let ook op het contrast, dit moet voldoen aan 4,5:1 bij normale tekst en 3:1 bij grote tekst (18pt of 14pt dikgedrukt)</p>
 <h5>check</h5>
 <p>Controleer dat bijvoorbeeld foutmeldingen ook zonder kleur duidelijkheid verschaffen en of de contrast ratio voldoende is.
 Gebruik hiervoor applicaties, plugins of browser extensies. Bijvoorbeeld de chrome extensie &quot;WCAG Luminosity Contrast Ratio Analyzer&quot;. hiermee kun je contrast ratio controleren en ook de pagina bekijken als een kleurenblinde.</p>
-<h4>Contextwijzigingen</h4>
+<h4 id="contextwijzigingen">Contextwijzigingen</h4>
 <h5>richtlijn</h5>
 <p>Grote gebeurtenissen, zoals het verzenden van formulieren en het openen van nieuwe vensters, worden contextwijzigingen genoemd. Ook het automatisch geven van focus aan een ander element in een formulier of op de website is een contextwijziging. Ook als een bezoeker een veld in een formulier invult, een selectievakje of keuzerondje aanklikt of een waarde kiest uit een keuzelijst mag er geen contextwijziging plaatsvinden, tenzij de bezoeker daarover is geïnformeerd. Informeren betekent dat in een tekst die vóór het betreffende veld staat is aangegeven wat er zal gebeuren als de bezoeker het veld invult of een optie selecteert. Zorg dat de context alleen door toedoen van de bezoeker kan wijzigen.</p>
 <h5>check</h5>
 <p>Controleer bij formulieren dat het invullen of selecteren van velden niet een onverwachte contextwijziging optreed. Denk hierbij bijvoorbeeld aan een datumveld opgebouwd uit drie invoervelden waarbij de focus verspringt tijdens het invoeren, maar ook het verschijnen van extra invoervelden op basis van een gemaakte selectie, of juist het verdwijnen hiervan.</p>
-<h4>Code</h4>
+<h4 id="code">Code</h4>
 <h5>richtlijn</h5>
 <p>Een webpagina is opgebouwd uit Html, gebruik semantisch correcte elementen die duidelijk weergeven wat voor type content er wordt getoond en gebruik geen afgekeurde elementen en attributen. Als elementen een id attribuut hebben zorg er dan voor dat dit id uniek is binnen de pagina.
 JavaScript is toegestaan, mits geen toegankelijkheidsproblemen worden veroorzaakt. Houd JavaScript gescheiden van de HTML-code (geen inline javascript).
