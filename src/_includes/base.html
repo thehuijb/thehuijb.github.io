@@ -4,7 +4,7 @@
 <head>
 	<title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }} – {{ site.description }}</title>
 
-	{% include meta.html %}
+	{% include 'meta.html' %}
 
 	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/styles/style.css" />
 	<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
@@ -14,7 +14,7 @@
 
 <body>
 	{{ content }}
-	{% include analytics.html %}
+	{% include 'analytics.html' %}
 </body>
 
 </html>
